@@ -1,5 +1,6 @@
+version: '2.0'
 services:
-  asmaraku-mini-project-db:
+  mini-project-db:
     image: mongo
     ports:
       - '27017:27017'
