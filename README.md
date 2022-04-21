@@ -37,7 +37,15 @@ To try and run the application, I recommend to use docker compose for easy setup
    yarn init:db
    ```
 
-4. Start the application
+4. Add `.env` to configure the database connection strings
+
+   While the server will default use the local mongodb database, it is better to point it out to the right databae. So make `.env` file in the root of the project and fill it up with the following content.
+
+   ```
+   MONGO_CONNECTION_STRING=mongodb://localhost:27017/covid
+   ```
+
+5. Start the application
 
    ```bash
    yarn
