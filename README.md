@@ -48,7 +48,7 @@ To try and run the application, I recommend to use docker compose for easy setup
 5. Start the application
 
    ```bash
-   yarn
+   yarn start
    ```
 
 ## Timing, Challenges, and Resources
