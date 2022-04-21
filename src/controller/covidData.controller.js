@@ -1,5 +1,5 @@
-import { updateCovidData, getAllCovidData, getLatestCovidData } from "../services/covidData.service"
-import { getCovidDataFromAPI } from "../utils/covidData.utils"
+import { getAllCovidData, getLatestCovidData } from "../services/covidData.service"
+import { updateCovidDataFromAPI } from "../utils/covidData.utils"
 
 
 // @ts-ignore
@@ -39,18 +39,12 @@ const updateCovidDataController = (_req, res, next) => {
     try {
         console.info("Covid data update has been requested!")
 
-        getCovidDataFromAPI().then(APIData => {
-            console.debug("Data fetched from API ", APIData)
+        updateCovidDataFromAPI().then(data => {
+            res.json(data)
 
-            updateCovidData(APIData).then(dbResponse => {
-                res.json(dbResponse)
-
-                next()
-            }).catch(e => {
-                console.error('Mongo Update Covid Data Error', e)
-
-                next(e)
-            })
+            next()
+        }).catch(e => {
+            next(e)
         })
     } catch (e) {
         console.error('Updating Covid Data Error', e)
